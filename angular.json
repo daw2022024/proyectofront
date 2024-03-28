@@ -55,6 +55,7 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "port":3000,
           "configurations": {
             "production": {
               "buildTarget": "proyectofront:build:production"
