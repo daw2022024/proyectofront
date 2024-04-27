@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 enum Endpoint {
   Home = 'home',
   Catalog = 'catalog',
-  Category = 'category',
+  Category = 'category/',
   Subcategory = 'subcategory',
   Product = 'product'
 }
@@ -20,10 +20,17 @@ export class ApiJsonService {
   constructor(private http: HttpClient) { }
 
   getEndpointUrl(endpoint: string, id?: number) {
-    if (id) {
-      return `${this.url}${endpoint}/${id}`;
+    if (endpoint != 'category/') {
+      if (id) {
+        return `${this.url}${endpoint}/${id}`;
+      } else {
+        return `${this.url}${endpoint}`;
+      }
+    } else {if (id) {
+      return `${this.url}${endpoint}${id}`;
     } else {
       return `${this.url}${endpoint}`;
+    }
     }
   }
 

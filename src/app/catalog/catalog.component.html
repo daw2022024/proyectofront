@@ -1,12 +1,12 @@
 <div class="contenedorGenerico">
-    @for(product of elements;track product.id){
+    @for(product of products;track product.id){
     <div class="contenedorElemento" (click)="goToProduct(product.id)">
         <div class="contenedorImagen">
             <img class="card-img-top" src="{{product.src}}">
         </div>
         <div class="card-body">
             <p class="card-title">Nombre: {{product.name}}</p>
-            
+            <p class="card-text">Descripcion: {{product.description}}</p>
         </div>
     </div>
     }

@@ -1,30 +1,34 @@
 import { Routes } from '@angular/router';
 import { ContainerComponent } from './container/container.component';
+import { CatalogComponent } from './catalog/catalog.component';
+import { HomeComponent } from './home/home.component';
+import { CategoryComponent } from './category/category.component';
+import { ProductComponent } from './product/product.component';
 
 export const routes: Routes = [
-    { 
-        path: 'home', 
-        component: ContainerComponent 
+    {
+        path: 'home',
+        component: HomeComponent
     },
     {
         path: 'catalog',
-        component:ContainerComponent
+        component: CatalogComponent
     },
     {
         path: 'category',
-        component:ContainerComponent
+        component: CategoryComponent
     },
     {
         path: 'category/:id',
-        component:ContainerComponent
+        component: CategoryComponent
     },
     {
         path: 'product/:id',
-        component:ContainerComponent
+        component: ProductComponent
     },
     {
         path: 'subcategory/:id',
-        component:ContainerComponent
+        component: ContainerComponent
     }
-    
+
 ];

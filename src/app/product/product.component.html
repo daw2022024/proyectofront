@@ -1,0 +1,14 @@
+<div class="">
+    @for(element of elements;track element.id){
+        <h2>{{element.name}}</h2>
+        <h3>{{element.description}}</h3>
+        <div class="contenedorImagen">
+            <img class="card-img-top" src="{{element.src}}">
+        </div>
+        <h3>Categoria: {{element.category.name}}</h3>
+        <h3>Subcategoria: {{element.subcategory.name}}</h3>
+        @for(price of element.prices;track price.id){
+            <h3>{{price.market.name}}--{{price.value}}€</h3>
+        }
+    }
+</div>

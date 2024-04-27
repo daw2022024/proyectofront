@@ -1,0 +1,27 @@
+<div class="contenedorGenerico">
+    @if(id==''){
+        @for(element of elements;track element.id){
+            <div class="contenedorElemento">
+            <h2><a href="/category/{{element.id}}">{{element.name}}</a></h2>
+            @for(subcat of element.subcategories;track subcat.id){
+                <p><a href="/subcategory/{{subcat.id}}">{{subcat.name}}</a></p>
+            }
+        </div>
+        }
+    }@else{
+        @for(element of elements;track element.id){
+            <div class="contenedorElemento">
+            <h2><a href="/subcategory/{{element.id}}">{{element.name}}</a></h2>
+            @for(product of element.products;track product.id){
+                <div (click)="goToProduct(product.id)">
+                <p><a href="/product/{{product.id}}">{{product.name}}</a></p>
+                <div class="contenedorImagen">
+                    <img class="card-img-top" src="{{product.src}}">
+                </div>
+                </div>
+            }
+        </div>
+        }
+    }
+
+</div>

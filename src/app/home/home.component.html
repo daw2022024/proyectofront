@@ -1,0 +1,14 @@
+<div class="contenedorGenerico">
+    @for(element of elements;track element.id){
+        <div class="contenedorElemento">
+            <h3><a href="/subcategory/{{element.id}}">{{element.category}}-{{element.name}}</a></h3>
+            <div class="contenedorImagen">
+                <img class="card-img-top" src="{{element.products.src}}">
+            </div>
+            <div class="card-body">
+                <p class="card-title">{{element.products.name}}</p>
+                
+            </div>
+        </div>
+    }
+</div>
