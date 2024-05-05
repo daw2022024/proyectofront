@@ -1,25 +1,20 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router, RouterOutlet } from '@angular/router';
 import { ApiJsonService } from '../api-json.service';
-
-enum Endpoint {
-  Home = 'home',
-  Catalog = 'catalog',
-  Category = 'category',
-  Subcategory = 'subcategory',
-  Product = 'product'
-}
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-container',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, MatCardModule, MatButtonModule],
   templateUrl: './container.component.html',
   styleUrl: './container.component.css'
 })
 export class ContainerComponent {
   elements: any;
   id: string = '1';
+  subcategory:any;
   constructor(private activatedRoute: ActivatedRoute, private apiJsonService: ApiJsonService, private router: Router) {
 
   }
@@ -28,7 +23,7 @@ export class ContainerComponent {
       this.id = parametros.get('id') || '1';
         this.apiJsonService.subcategory(parseInt(this.id)).subscribe(result => {
           this.elements = result;
-          console.log(this.id)
+          this.subcategory =this.elements[1].subcategory;
         });
       
     });

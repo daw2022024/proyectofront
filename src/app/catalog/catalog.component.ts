@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { Product } from '../models/product';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ApiJsonService } from '../api-json.service';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-catalog',
   standalone: true,
-  imports: [],
+  imports: [MatCardModule, MatButtonModule],
   templateUrl: './catalog.component.html',
   styleUrl: './catalog.component.css'
 })

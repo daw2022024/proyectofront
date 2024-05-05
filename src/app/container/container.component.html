@@ -1,13 +1,14 @@
-<div class="contenedorGenerico">
-    @for(product of elements;track product.id){
-    <div class="contenedorElemento" (click)="goToProduct(product.id)">
-        <div class="contenedorImagen">
-            <img class="card-img-top" src="{{product.src}}">
-        </div>
-        <div class="card-body">
-            <p class="card-title">Nombre: {{product.name}}</p>
-            
-        </div>
+<div class="contenedorElemento">
+    <h2>{{subcategory}}</h2>
+    <div class="contenedorGenerico">
+        @for(product of elements;track product.id){
+        <mat-card class="example-card" (click)="goToProduct(product.id)">
+            <img mat-card-image class="contenedorImagen" src="{{product.src}}">
+            <mat-card-header>
+                <mat-card-title>{{product.name}}</mat-card-title>
+
+            </mat-card-header>
+        </mat-card>
+        }
     </div>
-    }
 </div>

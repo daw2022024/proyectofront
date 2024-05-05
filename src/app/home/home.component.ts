@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router, RouterLink } from '@angular/router';
 import { ApiJsonService } from '../api-json.service';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [MatCardModule, MatButtonModule,RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

@@ -1,11 +1,7 @@
-<ul class="navbar-ul">
-    <li class="navbar-li">
-        <button class="navbar-button" routerLink="/home">Home</button>
-    </li>
-    <li class="navbar-li">
-        <button class="navbar-button" routerLink="/catalog">Catalogo</button>
-    </li>
-    <li class="navbar-li">
-        <button class="navbar-button" routerLink="/category">Categorias</button>
-    </li>
-</ul>
+<mat-toolbar class="general">
+    <mat-nav-list class="list-horizontal">
+        <button mat-raised-button mat-menu-item routerLink="/home">Home</button>
+        <button mat-menu-item mat-raised-button routerLink="/catalog">Catalogo</button>
+        <button mat-menu-item mat-raised-button routerLink="/category">Categorias</button>
+    </mat-nav-list>
+</mat-toolbar>

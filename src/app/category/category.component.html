@@ -1,27 +1,31 @@
 <div class="contenedorGenerico">
     @if(id==''){
-        @for(element of elements;track element.id){
-            <div class="contenedorElemento">
-            <h2><a href="/category/{{element.id}}">{{element.name}}</a></h2>
-            @for(subcat of element.subcategories;track subcat.id){
-                <p><a href="/subcategory/{{subcat.id}}">{{subcat.name}}</a></p>
-            }
-        </div>
+    @for(element of elements;track element.id){
+    <div class="contenedorLista">
+        <h2><a href="/category/{{element.id}}">{{element.name}}</a></h2>
+        <div class="contenedorSublista">
+        @for(subcat of element.subcategories;track subcat.id){
+        <p><a href="/subcategory/{{subcat.id}}">{{subcat.name}}</a></p>
         }
+        </div>
+        <hr>
+    </div>
+    }
     }@else{
-        @for(element of elements;track element.id){
-            <div class="contenedorElemento">
-            <h2><a href="/subcategory/{{element.id}}">{{element.name}}</a></h2>
-            @for(product of element.products;track product.id){
-                <div (click)="goToProduct(product.id)">
-                <p><a href="/product/{{product.id}}">{{product.name}}</a></p>
-                <div class="contenedorImagen">
-                    <img class="card-img-top" src="{{product.src}}">
-                </div>
-                </div>
-            }
-        </div>
+    @for(element of elements;track element.id){
+
+    <div class="contenedorElemento">
+        <h2><a href="/subcategory/{{element.id}}">{{element.name}}</a></h2>
+        @for(product of element.products;track product.id){
+            <mat-card class="example-card" (click)="goToProduct(product.id)">
+                <img mat-card-image class="contenedorImagen" src="{{product.src}}">
+                <mat-card-header>
+                    <mat-card-title>{{product.name}}</mat-card-title>
+                </mat-card-header>
+            </mat-card>
         }
+    </div>
+    }
     }
 
 </div>

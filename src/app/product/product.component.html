@@ -1,14 +1,28 @@
-<div class="">
+<div class="contenedor">
     @for(element of elements;track element.id){
-        <h2>{{element.name}}</h2>
-        <h3>{{element.description}}</h3>
+    <h2>{{element.name}}</h2>
+
+    <div class="display">
         <div class="contenedorImagen">
-            <img class="card-img-top" src="{{element.src}}">
+            <img class="contenedorImagen" src="{{element.src}}">
         </div>
-        <h3>Categoria: {{element.category.name}}</h3>
-        <h3>Subcategoria: {{element.subcategory.name}}</h3>
+        <div class="display-info">
+            <h3>{{element.description}}</h3>
+            <button mat-button class="button-card" routerLink="/category/{{element.category.id}}">{{element.category.name}}</button>
+            <button mat-button class="button-card" routerLink="/subcategory/{{element.subcategory.id}}">{{element.subcategory.name}}</button>
+        </div>
+    </div>
+    <table class="table">
+        <tr>
+            <th> Precio </th>
+            <th>Supermercado </th>
+        </tr>
         @for(price of element.prices;track price.id){
-            <h3>{{price.market.name}}--{{price.value}}€</h3>
+        <tr>
+            <td>{{price.value}}€</td>
+            <td>{{price.market.name}}</td>
+        </tr>
         }
+    </table>
     }
 </div>

@@ -15,6 +15,10 @@ export const routes: Routes = [
         component: CatalogComponent
     },
     {
+        path: 'catalog/:id',
+        component: CatalogComponent
+    },
+    {
         path: 'category',
         component: CategoryComponent
     },
