@@ -28,3 +28,17 @@
     height: 350px;
     width: 348px;
 }
+.button-card{
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #555; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.button-card:hover{
+    background-color: #777; 
+    color: #fff; 
+}

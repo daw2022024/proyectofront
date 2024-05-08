@@ -15,6 +15,7 @@ export class ContainerComponent {
   elements: any;
   id: string = '1';
   subcategory:any;
+  mensaje:string='';
   constructor(private activatedRoute: ActivatedRoute, private apiJsonService: ApiJsonService, private router: Router) {
 
   }
@@ -24,6 +25,10 @@ export class ContainerComponent {
         this.apiJsonService.subcategory(parseInt(this.id)).subscribe(result => {
           this.elements = result;
           this.subcategory =this.elements[1].subcategory;
+          if(this.elements[0].mensaje=='No se han encontrado resultados')
+            {
+              this.mensaje='No se han encontrado resultados';
+            }
         });
       
     });

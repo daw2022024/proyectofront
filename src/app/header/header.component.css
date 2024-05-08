@@ -1,0 +1,7 @@
+.footer__logo img {
+    width: 100px;
+    /* ajusta el tamaño del logo según sea necesario */
+    margin-top: 20px;
+    margin-left: 20px;
+    position: fixed;
+}

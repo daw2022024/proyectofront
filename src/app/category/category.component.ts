@@ -14,6 +14,7 @@ import {MatCardModule} from '@angular/material/card';
 export class CategoryComponent {
   elements: any;
   id: string = '';
+  mensaje:string='';
   constructor(private activatedRoute: ActivatedRoute, private apiJsonService: ApiJsonService, private router: Router) {
 
   }
@@ -23,13 +24,17 @@ export class CategoryComponent {
       if (this.id == '') {
         this.apiJsonService.category().subscribe(result => {
           this.elements = result;
-          console.log(this.id)
+          
         });
       }
       else {
         this.apiJsonService.category(parseInt(this.id)).subscribe(result => {
           this.elements = result;
           console.log(this.id)
+          if(this.elements[0].mensaje=='No se han encontrado resultados')
+            {
+              this.mensaje='No se han encontrado resultados';
+            }
         });
       }
     });

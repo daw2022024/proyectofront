@@ -1,4 +1,5 @@
 <div class="contenedor">
+    @if(mensaje==''){
     @for(element of elements;track element.id){
     <h2>{{element.name}}</h2>
 
@@ -24,5 +25,8 @@
         </tr>
         }
     </table>
+    }}
+    @else {
+        <h2 id="error">{{mensaje}}</h2>
     }
 </div>

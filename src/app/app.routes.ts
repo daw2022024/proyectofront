@@ -4,8 +4,14 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { HomeComponent } from './home/home.component';
 import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
+import { ErrorComponent } from './error/error.component';
 
 export const routes: Routes = [
+    {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+    },
     {
         path: 'home',
         component: HomeComponent
@@ -33,6 +39,14 @@ export const routes: Routes = [
     {
         path: 'subcategory/:id',
         component: ContainerComponent
+    },
+    {
+        path: 'error',
+        component: ErrorComponent
+    },
+    {
+        path:'**',
+        redirectTo: '/error'
     }
 
 ];

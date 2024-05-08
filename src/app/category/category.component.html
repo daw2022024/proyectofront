@@ -1,4 +1,5 @@
 <div class="contenedorGenerico">
+    @if(mensaje==''){
     @if(id==''){
     @for(element of elements;track element.id){
     <div class="contenedorLista">
@@ -27,5 +28,8 @@
     </div>
     }
     }
-
+    }
+    @else{
+        <h2 id="error">{{mensaje}}</h2>
+    }
 </div>

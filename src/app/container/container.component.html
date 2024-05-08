@@ -1,4 +1,5 @@
 <div class="contenedorElemento">
+    @if(mensaje==''){
     <h2>{{subcategory}}</h2>
     <div class="contenedorGenerico">
         @for(product of elements;track product.id){
@@ -11,4 +12,7 @@
         </mat-card>
         }
     </div>
+    }@else {
+        <h2 id="error">{{mensaje}}</h2>
+    }
 </div>

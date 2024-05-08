@@ -13,14 +13,20 @@ import {MatTableModule} from '@angular/material/table';
 export class ProductComponent {
   elements: any;
   id: string = '1';
+  mensaje:string='';
   constructor(private activatedRoute: ActivatedRoute, private apiJsonService: ApiJsonService, private router: Router) {
 
   }
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((parametros: ParamMap) => {
+      
       this.id = parametros.get('id') || '1';
         this.apiJsonService.product(parseInt(this.id)).subscribe(result => {
           this.elements = result;
+          if(this.elements[0].mensaje=='No se han encontrado resultados')
+          {
+            this.mensaje='No se han encontrado resultados';
+          }
         });
       
     });

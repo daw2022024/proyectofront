@@ -65,3 +65,7 @@ h2{
     background-color: #777; /* Gris medio al hacer hover */
     color: #fff; 
 }
+
+#error{
+    text-align: center;
+}
