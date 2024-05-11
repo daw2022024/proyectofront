@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router, RouterOutlet } from '@angular/router';
 import { ApiJsonService } from '../api-json.service';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-container',
@@ -14,28 +14,29 @@ import {MatCardModule} from '@angular/material/card';
 export class ContainerComponent {
   elements: any;
   id: string = '1';
-  subcategory:any;
-  mensaje:string='';
+  subcategory: any;
+  mensaje: string = '';
   constructor(private activatedRoute: ActivatedRoute, private apiJsonService: ApiJsonService, private router: Router) {
 
   }
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((parametros: ParamMap) => {
       this.id = parametros.get('id') || '1';
-        this.apiJsonService.subcategory(parseInt(this.id)).subscribe(result => {
-          this.elements = result;
-          this.subcategory =this.elements[1].subcategory;
-          if(this.elements[0].mensaje=='No se han encontrado resultados')
-            {
-              this.mensaje='No se han encontrado resultados';
-            }
-        });
-      
+      this.apiJsonService.subcategory(parseInt(this.id)).subscribe(result => {
+        
+        this.elements = result;
+        if (this.elements[0].mensaje == 'No se han encontrado resultados') {
+          this.mensaje = 'No se han encontrado resultados';
+        }
+        this.subcategory = this.elements[1].subcategory;
+        
+      });
+
     });
 
   }
   goToProduct(id: number) {
-    this.router.navigateByUrl("product/"+ id);
+    this.router.navigateByUrl("product/" + id);
   }
 
 }

@@ -15,7 +15,7 @@ enum Endpoint {
 })
 export class ApiJsonService {
 
-  private url = 'http://127.0.0.1:8000/';
+  private url = 'http://200.234.239.230:8181/';
 
   constructor(private http: HttpClient) { }
 
